@@ -1,20 +1,49 @@
 <template>
   <h1>Gratitude</h1>
   <div class="prompt-container">
-    <Gratitude :prompts="prompts"/>
+    <Gratitude
+      :prompts="prompts"
+      @update:response="saveResponse"/>
+
+    <h3>Last time you said:</h3>
+    <p>
+      {{lastResponse.prompt}}
+    </p>
+    <p>
+      "{{lastResponse.response}}"
+    </p>
   </div>
 </template>
 
 <script>
+/* eslint-disable no-debugger, no-console */
 import Gratitude from './components/Gratitude.vue'
+
+const STORAGE_KEY = "gratitude-app";
+
+const storage = {
+  fetch() {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY));
+  },
+  save({prompt, response}) {
+    console.log(prompt, response);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({prompt: prompt.text, response: response}));
+  },
+};
 
 export default {
   name: 'App',
   components: {
     Gratitude
   },
+  methods: {
+    saveResponse(response) {
+      storage.save(response);
+    },
+  },
   data() {
     return {
+      lastResponse: storage.fetch(),
       prompts: [
         {
           text: 'What I focused on today',
