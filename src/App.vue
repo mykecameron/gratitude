@@ -1,6 +1,8 @@
 <template>
   <h1>Gratitude</h1>
-  <Gratitude :prompts="prompts"/>
+  <div class="prompt-container">
+    <Gratitude :prompts="prompts"/>
+  </div>
 </template>
 
 <script>
@@ -58,5 +60,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.prompt-container {
+  width: 50%;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
 }
 </style>
