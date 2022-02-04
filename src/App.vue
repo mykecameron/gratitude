@@ -5,28 +5,22 @@
       :prompts="prompts"
       @save:response="saveResponse"/>
 
-    <h3>Last time you said:</h3>
-    <p>
-      {{lastResponse.prompt}}
-    </p>
-    <p>
-      "{{lastResponse.text}}"
-    </p>
-      on {{lastResponse.prettyDate}}
-    <p>
-    </p>
+    <LastResponse
+      :lastResponse="lastResponse"/>
   </div>
 </template>
 
 <script>
 import Gratitude from './components/Gratitude.vue';
+import LastResponse from './components/LastResponse.vue';
 import Response from './models/response.js';
 import prompts from './fixtures/prompts.js';
 
 export default {
   name: 'App',
   components: {
-    Gratitude
+    Gratitude,
+    LastResponse
   },
   methods: {
     saveResponse(response) {
@@ -35,7 +29,7 @@ export default {
   },
   data() {
     return {
-      lastResponse: Response.last() || {},
+      lastResponse: Response.last(),
       prompts: prompts
     };
   }

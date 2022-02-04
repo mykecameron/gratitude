@@ -10,8 +10,4 @@ export default class Store {
   all() {
     return JSON.parse(localStorage.getItem(this.STORAGE_KEY)) || [];
   }
-
-  last() {
-    return this.all()[0];
-  }
 }

@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     saveResponse() {
-      this.$emit('save:response', {prompt: this.currentPrompt.text, text: this.response});
+      this.$emit('save:response', {prompt: this.currentPrompt, text: this.response});
     }
   }
 }
