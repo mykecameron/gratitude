@@ -8,6 +8,15 @@
     <LastResponse
       :lastResponse="lastResponse"/>
   </div>
+
+  <footer class="footer">
+    <a href="https://github.com/mykecameron/gratitude">
+      <img
+        src="@/assets/img/GitHub-Mark-32px.png"
+        title="Check it out on Github!"
+        alt="Github logo"/>
+    </a>
+  </footer>
 </template>
 
 <script>
@@ -52,5 +61,9 @@ export default {
   margin-left: auto;
   margin-right: auto;
   margin-top: 5rem;
+}
+
+.footer {
+  margin-top: 3rem;
 }
 </style>
