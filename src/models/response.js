@@ -1,3 +1,5 @@
+import Store from "./store.js";
+
 export default class Response {
   date;
   text = "";
@@ -13,5 +15,21 @@ export default class Response {
   get prettyDate() {
     const date = new Date(this.date);
     return date.toDateString();
+  }
+
+  save() {
+    this.constructor.#store.save(this);
+  }
+
+  static all() {
+    return this.#store.all().map((i) => new this(i));
+  }
+
+  static last() {
+    return this.all()[0];
+  }
+
+  static get #store() {
+    return new Store();
   }
 }

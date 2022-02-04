@@ -3,7 +3,7 @@
   <div class="prompt-container">
     <Gratitude
       :prompts="prompts"
-      @update:response="saveResponse"/>
+      @save:response="saveResponse"/>
 
     <h3>Last time you said:</h3>
     <p>
@@ -12,27 +12,15 @@
     <p>
       "{{lastResponse.text}}"
     </p>
-      "{{lastResponse.prettyDate}}"
+      on {{lastResponse.prettyDate}}
     <p>
     </p>
   </div>
 </template>
 
 <script>
-/* eslint-disable no-debugger, no-console */
 import Gratitude from './components/Gratitude.vue';
 import Response from './models/response.js';
-
-const STORAGE_KEY = "gratitude-app";
-
-const storage = {
-  fetch() {
-    return new Response(JSON.parse(localStorage.getItem(STORAGE_KEY)));
-  },
-  save({prompt, response}) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(new Response({text: response, prompt: prompt.text})));
-  },
-};
 
 export default {
   name: 'App',
@@ -41,12 +29,12 @@ export default {
   },
   methods: {
     saveResponse(response) {
-      storage.save(response);
+      new Response(response).save();
     },
   },
   data() {
     return {
-      lastResponse: storage.fetch(),
+      lastResponse: Response.last() || {},
       prompts: [
         {
           text: 'What I focused on today',

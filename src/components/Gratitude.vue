@@ -17,7 +17,7 @@ export default {
   props: {
     prompts: Array,
   },
-  emits: ['update:response'],
+  emits: ['save:response'],
   computed: {
     currentPrompt() {
       return this.prompts[this.randomPromptIndex];
@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     saveResponse() {
-      this.$emit('update:response', {prompt: this.currentPrompt, response: this.response});
+      this.$emit('save:response', {prompt: this.currentPrompt.text, text: this.response});
     }
   }
 }
