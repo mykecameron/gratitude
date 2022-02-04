@@ -11,30 +11,11 @@ in browser `localStorage`, so that you can revisit them later.
 
 You can see it in action at https://mykecameron.github.io/gratitude/.
 
-## Project setup
+## How to run it
 
-```
-yarn install
-```
+Check out the repo, then run `yarn install` to install the dependencies.
 
-### Compiles and hot-reloads for development
+To serve a development server, run `yarn serve`. To build for production run
+`yarn build`.
 
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-
-```
-yarn build
-```
-
-### Lints and fixes files
-
-```
-yarn lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Github Pages deployment can be triggered by running `yarn deploy`.
