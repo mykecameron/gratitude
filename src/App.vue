@@ -2,7 +2,6 @@
   <h1>Gratitude</h1>
   <div class="prompt-container">
     <Gratitude
-      :prompts="prompts"
       @save:response="saveResponse"/>
 
     <LastResponse
@@ -23,7 +22,6 @@
 import Gratitude from './components/Gratitude.vue';
 import LastResponse from './components/LastResponse.vue';
 import Response from './models/response.js';
-import prompts from './fixtures/prompts.js';
 
 export default {
   name: 'App',
@@ -39,7 +37,6 @@ export default {
   data() {
     return {
       lastResponse: Response.last(),
-      prompts: prompts
     };
   }
 }

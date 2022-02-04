@@ -1,5 +1,6 @@
 <template>
   <h3>{{currentPrompt}}</h3>
+  <button @click="changePrompt">🔄 </button>
   <textarea
     autofocus
     class="response"
@@ -11,24 +12,32 @@
 </template>
 
 <script>
-// TODO: implement getting a new random prompt
+import prompts from '../fixtures/prompts.js';
+
+const randomPromptIndex = function() {
+  return Math.floor(Math.random() * prompts.length);
+}
+
 export default {
   name: 'Gratitude',
-  props: {
-    prompts: Array,
-  },
-  emits: ['save:response'],
   computed: {
     currentPrompt() {
-      return this.prompts[this.randomPromptIndex];
-    },
-    randomPromptIndex() {
-      return Math.floor(Math.random() * this.prompts.length);
+      return this.prompts[this.currentPromptIndex];
     },
   },
+  data() {
+    return {
+      prompts: prompts,
+      currentPromptIndex: randomPromptIndex(),
+    }
+  },
+  emits: ['save:response'],
   methods: {
     saveResponse() {
       this.$emit('save:response', {prompt: this.currentPrompt, text: this.response});
+    },
+    changePrompt() {
+      this.currentPromptIndex = randomPromptIndex();
     }
   }
 }
