@@ -4,14 +4,12 @@
     <button @click="changePrompt" class="refresh-button">&#8634;</button>
   </div>
 
-  <form>
-    <textarea
-      autofocus
-      class="response"
-      v-model="response">
-    </textarea>
-    <button @click="saveResponse" class="save-button">Record Gratitude!</button>
-  </form>
+  <textarea
+    autofocus
+    class="response"
+    v-model="response">
+  </textarea>
+  <button @click="saveResponse" class="save-button">Record Gratitude!</button>
 </template>
 
 <script>
