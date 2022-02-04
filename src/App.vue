@@ -10,24 +10,27 @@
       {{lastResponse.prompt}}
     </p>
     <p>
-      "{{lastResponse.response}}"
+      "{{lastResponse.text}}"
+    </p>
+      "{{lastResponse.prettyDate}}"
+    <p>
     </p>
   </div>
 </template>
 
 <script>
 /* eslint-disable no-debugger, no-console */
-import Gratitude from './components/Gratitude.vue'
+import Gratitude from './components/Gratitude.vue';
+import Response from './models/response.js';
 
 const STORAGE_KEY = "gratitude-app";
 
 const storage = {
   fetch() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY));
+    return new Response(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   },
   save({prompt, response}) {
-    console.log(prompt, response);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({prompt: prompt.text, response: response}));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(new Response({text: response, prompt: prompt.text})));
   },
 };
 
