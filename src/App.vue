@@ -2,7 +2,7 @@
   <h1>Gratitude</h1>
   <div class="prompt-container">
     <Gratitude
-      @save:response="saveResponse"/>
+      @save:response="refresh"/>
 
     <LastResponse
       :lastResponse="lastResponse"/>
@@ -30,8 +30,8 @@ export default {
     LastResponse
   },
   methods: {
-    saveResponse(response) {
-      new Response(response).save();
+    refresh() {
+      this.lastResponse = Response.last();
     },
   },
   data() {

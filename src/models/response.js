@@ -5,8 +5,7 @@ export default class Response {
   text = "";
   prompt = "";
 
-  constructor(attributes) {
-    const { date, text, prompt } = attributes;
+  constructor({ date, text, prompt }) {
     this.date = date || Date.now();
     this.text = text;
     this.prompt = prompt;

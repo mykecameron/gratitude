@@ -7,12 +7,11 @@
     v-model="response">
   </textarea>
   <button @click="saveResponse">Save</button>
-
-  <p>{{response}}</p>
 </template>
 
 <script>
 import prompts from '../fixtures/prompts.js';
+import Response from '../models/response.js';
 
 const randomPromptIndex = function() {
   return Math.floor(Math.random() * prompts.length);
@@ -29,12 +28,16 @@ export default {
     return {
       prompts: prompts,
       currentPromptIndex: randomPromptIndex(),
+      response: ""
     }
   },
   emits: ['save:response'],
   methods: {
     saveResponse() {
-      this.$emit('save:response', {prompt: this.currentPrompt, text: this.response});
+      const response = new Response({prompt: this.currentPrompt, text: this.response})
+      response.save();
+      this.response = "";
+      this.$emit('save:response', response);
     },
     changePrompt() {
       this.currentPromptIndex = randomPromptIndex();
