@@ -1,12 +1,17 @@
 <template>
-  <h3>{{currentPrompt}}</h3>
-  <button @click="changePrompt">🔄</button>
-  <textarea
-    autofocus
-    class="response"
-    v-model="response">
-  </textarea>
-  <button @click="saveResponse">Save</button>
+  <div class="prompt">
+    {{currentPrompt}}:
+    <button @click="changePrompt" class="refresh-button">&#8634;</button>
+  </div>
+
+  <form>
+    <textarea
+      autofocus
+      class="response"
+      v-model="response">
+    </textarea>
+    <button @click="saveResponse" class="save-button">Record Gratitude!</button>
+  </form>
 </template>
 
 <script>
@@ -51,5 +56,26 @@ export default {
   display: block;
   width: 100%;
   height: 10rem;
+  border: 1px solid #2c3e50;
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 0.5rem;
+  font-family: Satisfy;
+  font-size: 1.2rem;
+}
+
+.refresh-button {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.save-button {
+  border: 1px solid #2c3e50;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.save-button:active {
+  background-color: #bfc5ca;
 }
 </style>
