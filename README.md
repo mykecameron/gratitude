@@ -9,7 +9,7 @@ as an excuse to play with the framework and get a feel for working with it.
 The app prompts you to respond to a gratitude prompt, and saves the responses
 in browser `localStorage`, so that you can revisit them later.
 
-You can see it in action at [https://mykecameron.github.io/gratitude/].
+You can see it in action at https://mykecameron.github.io/gratitude/.
 
 ## Project setup
 
