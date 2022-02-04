@@ -12,7 +12,7 @@
 </template>
 
 <script>
-/* eslint-disable no-debugger, no-console */
+//TODO: change to history!
 export default {
   name: 'LastResponse',
   props: {

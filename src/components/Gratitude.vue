@@ -11,7 +11,7 @@
 </template>
 
 <script>
-/* eslint-disable no-debugger, no-console */
+// TODO: implement getting a new random prompt
 export default {
   name: 'Gratitude',
   props: {
