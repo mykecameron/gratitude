@@ -1,6 +1,6 @@
 <template>
   <h3>{{currentPrompt}}</h3>
-  <button @click="changePrompt">🔄 </button>
+  <button @click="changePrompt">🔄</button>
   <textarea
     autofocus
     class="response"

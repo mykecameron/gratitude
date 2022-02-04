@@ -4,8 +4,7 @@
     <Gratitude
       @save:response="refresh"/>
 
-    <LastResponse
-      :lastResponse="lastResponse"/>
+    <ResponseHistory :responses="responses"/>
   </div>
 
   <footer class="footer">
@@ -20,23 +19,23 @@
 
 <script>
 import Gratitude from './components/Gratitude.vue';
-import LastResponse from './components/LastResponse.vue';
+import ResponseHistory from './components/ResponseHistory.vue';
 import Response from './models/response.js';
 
 export default {
   name: 'App',
   components: {
     Gratitude,
-    LastResponse
+    ResponseHistory
   },
   methods: {
     refresh() {
-      this.lastResponse = Response.last();
+      this.responses = Response.all();
     },
   },
   data() {
     return {
-      lastResponse: Response.last(),
+      responses: Response.all(),
     };
   }
 }
