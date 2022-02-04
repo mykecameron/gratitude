@@ -12,6 +12,7 @@
     <a href="https://github.com/mykecameron/gratitude">
       <img
         src="@/assets/img/GitHub-Mark-32px.png"
+        class="github"
         title="Check it out on Github!"
         alt="Github logo"/>
     </a>
@@ -73,7 +74,6 @@ export default {
 }
 
 .prompt-container {
-  width: 50%;
   max-width: 40rem;
   margin-left: auto;
   margin-right: auto;
@@ -81,11 +81,15 @@ export default {
 }
 
 .footer {
-  margin-top: 3rem;
+  margin-top: 5rem;
 }
 
 button {
   cursor: pointer;
+}
+
+.github {
+  opacity: 0.2;
 }
 
 </style>

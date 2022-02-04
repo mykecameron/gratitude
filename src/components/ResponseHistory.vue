@@ -62,7 +62,6 @@ export default {
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .container div {
@@ -71,14 +70,26 @@ export default {
 }
 
 button {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
+  filter: drop-shadow(5px 3px 2px #607992);
+  border: 1px solid #2c3e50;
+  background-color: white;
+  border-radius: 4rem;
+  padding: 0.2rem 0.6rem;
 }
 
 button:disabled,
 button[disabled]{
+  border-color: #748494;
   color: #748494;
   cursor: default;
+}
+
+button:active {
+  background-color: #bfc5ca;
+  transform: translate(5px, 3px);
+  filter: none;
 }
 
 h2 {
@@ -98,6 +109,7 @@ h2 {
 
 .prompt {
   font-style: italic;
+  font-size: 0.9rem;
 }
 
 .response {
