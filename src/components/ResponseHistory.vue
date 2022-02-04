@@ -62,6 +62,7 @@ export default {
 .container {
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 .container div {

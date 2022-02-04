@@ -81,7 +81,12 @@ export default {
 }
 
 .footer {
-  margin-top: 5rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  margin: 0;
+  padding: 0.5rem;
 }
 
 button {
@@ -89,6 +94,8 @@ button {
 }
 
 .github {
+  margin: 0;
+  padding: 0;
   opacity: 0.2;
 }
 
