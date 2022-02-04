@@ -1,5 +1,5 @@
 <template>
-  <h3>{{currentPrompt.text}}</h3>
+  <h3>{{currentPrompt}}</h3>
   <textarea
     autofocus
     class="response"
